@@ -54,7 +54,7 @@ The networks that released the most number of shows (ABC, NBC, CBS, and Fox) als
 
 ![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/networks.png)
 
-New shows are most likely to be released on Saturday and Sunday, and on the first day of the month. By a wide margin, the most popular release month is September, followed distantly by October and January. Half-hour shows are slightly less likely to be cancelled than full-hour shows (35% vs 40%, respectively).
+New shows are most likely to be released on Sunday and Monday, and on the first day of the month. By a wide margin, the most popular release month is September, followed distantly by October and January. Half-hour shows are slightly less likely to be cancelled than full-hour shows (35% vs 40%, respectively).
 
 ![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/weekdays.png)
 

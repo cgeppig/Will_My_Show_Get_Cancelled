@@ -48,9 +48,17 @@ A total of 142 features were created within these five categories.
 
 The most common years of release within this data set was 2007-2010. This does not necessarily reflect a high point in the number of shows released, but likely reflects the available data. Although this data set originally included shows dating back to 1980, most shows from the 1980s were absent from the cleaned data.
 
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/yearly.png)
+
 The networks that released the most number of shows (ABC, NBC, CBS, and Fox) also cancelled the highest proportion of those shows, with each of these networks cancelling approximately half of their new shows within the first season. The networks cancelling the fewest proportion of their new shows were Nickelodeon, Cartoon Network and HBO.
 
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/networks.png)
+
 New shows are most likely to be released on Saturday and Sunday, and on the first day of the month. By a wide margin, the most popular release month is September, followed distantly by October and January. Half-hour shows are slightly less likely to be cancelled than full-hour shows (35% vs 40%, respectively).
+
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/weekdays.png)
+
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/month.png)
 
 
 ##6) Modeling
@@ -58,6 +66,12 @@ New shows are most likely to be released on Saturday and Sunday, and on the firs
 The cleaned data set was divided into training and test subsets--the training set contained 1545 rows, and the test set contained 516 rows. 39% of the shows in the final data set were cancelled; thus the base probability for this model was 0.39.
 
 AdaBoost classifier was used to predict cancellation or renewal. Other modeling techniques, such as random forest, produced similar accuracy scores, but over-predicted renewal. AdaBoost was accurate at producing both renewal and cancellation, and had a balanced number of false positives and false negatives. Using 100 estimators, the model accuracy was 0.73 on the training set and 0.68 on the test set.
+
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/classification_report.jpg)
+
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/confusion_matrix.jpg)
+
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/adaboost_roc.png)
 
 
 ##7) Conclusions

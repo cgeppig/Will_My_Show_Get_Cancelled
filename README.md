@@ -4,19 +4,19 @@
 ###By Chris Eppig, Ph.D.
 
 
-1. **The Problem**
+##1) The Problem
 
 Dozens of new TV shows are released every season. Many of these shows succeed, but many are quickly cancelled due to low viewer interest. Production studios spend millions of dollars producing and marketing new shows, and this money may be lost if the show fails to generate sufficient advertising revenue.
 
 Television viewers may become invested in a new show, only to be disappointed when it comes to an early end. Having advance warning of a show's fate will not prevent cancellation, but it can help prepare viewers for the outcome.
 
-2. **The Solution**
+##2) The Solution
 
 In this analysis, a model was be created to predict whether a TV show will be cancelled in its first season. Success was determined by whether the model predicts cancellation better than chance.
 
 The goal of this model was to make the most accurate predictions possible--being able to determine the impact of each variable was not a primary concern.
 
-3. **Data Collection and Cleaning**
+##3) Data Collection and Cleaning
 
 The titles of 2935 American TV shows from between 1980 and 2015 were taken from a Wikipedia entry: https://en.wikipedia.org/wiki/List_of_American_Television_programs_by_date
 
@@ -28,7 +28,7 @@ Plot keywords and distribution network were scraped directly from the IMDB websi
 
 Of the original 2935 shows, 2016 were used in the final analysis. 874 shows were not used because important data was missing.
 
-4. **Features**
+##4) Features
 
 Shows were considered to be cancelled if the number of seasons listed on IMDB was 1. Although most shows are cancelled eventually, this analysis was to predict whether they would be cancelled in one season. For stakeholders in the television industry, this predicts shows that are never profitable enough to be renewed.
 
@@ -44,7 +44,7 @@ The date on which the first episode of a show aired was retrieved from the api i
 
 A total of 142 features were created within these five categories.
 
-5. **Exploratory Data analysis**
+##5) Exploratory Data Analysis
 
 The most common years of release within this data set was 2007-2010. This does not necessarily reflect a high point in the number of shows released, but likely reflects the available data. Although this data set originally included shows dating back to 1980, most shows from the 1980s were absent from the cleaned data.
 
@@ -53,20 +53,20 @@ The networks that released the most number of shows (ABC, NBC, CBS, and Fox) als
 New shows are most likely to be released on Saturday and Sunday, and on the first day of the month. By a wide margin, the most popular release month is September, followed distantly by October and January. Half-hour shows are slightly less likely to be cancelled than full-hour shows (35% vs 40%, respectively).
 
 
-6. **Modeling**
+##6) Modeling
 
 The cleaned data set was divided into training and test subsets--the training set contained 1545 rows, and the test set contained 516 rows. 39% of the shows in the final data set were cancelled; thus the base probability for this model was 0.39.
 
 AdaBoost classifier was used to predict cancellation or renewal. Other modeling techniques, such as random forest, produced similar accuracy scores, but over-predicted renewal. AdaBoost was accurate at producing both renewal and cancellation, and had a balanced number of false positives and false negatives. Using 100 estimators, the model accuracy was 0.73 on the training set and 0.68 on the test set.
 
 
-7. **Conclusions**
+##7) Conclusions
 
 With a base probability of 0.39 and a model accuracy of 0.68, this model performs significantly better than chance. False negatives and false positives are balanced.
 
 From an industry perspective, the information produced by this model is actionable. By manipulating the variables in the model, it would be possible to create show outlines and release dates that would have a higher chance of success. The only variable that is not possible to directly manipulate is release year, but the information gained by it is still actionable. By keeping the year constant (presumably the current year), this model is able to determine what genres and other features are likely to be successful in that year.
 
-8. **Future Directions**
+##8) Future Directions
 
 This model could be improved by the addition of a variety of features.
 

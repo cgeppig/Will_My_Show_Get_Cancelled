@@ -67,9 +67,9 @@ The cleaned data set was divided into training and test subsets--the training se
 
 AdaBoost classifier was used to predict cancellation or renewal. Other modeling techniques, such as random forest, produced similar accuracy scores, but over-predicted renewal. AdaBoost was accurate at producing both renewal and cancellation, and had a balanced number of false positives and false negatives. Using 100 estimators, the model accuracy was 0.73 on the training set and 0.68 on the test set.
 
-![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/classification_report.jpg)
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/classification_report.png)
 
-![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/confusion_matrix.jpg)
+![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/confusion_matrix.png)
 
 ![](https://github.com/cgeppig/DSI_Capstone/blob/master/figures/adaboost_roc.png)
 

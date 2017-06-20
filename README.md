@@ -1,5 +1,3 @@
-# DSI_Capstone
-
 # Will My Show Get Cancelled?
 
 ### By Chris Eppig, Ph.D.

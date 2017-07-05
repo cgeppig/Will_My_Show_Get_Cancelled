@@ -92,3 +92,7 @@ Production and advertising budget could influence a show's success in a variety 
 Parental ratings affect the size of a show's potential audience. A show that is suitable for viewers of all ages has a higher potential for a large audience size and associated advertising revenue. However, shows that are more targeted to specific audiences--such as adults--may have greater success in attracting and keeping viewers. The main problem with using this data is that parental ratings for TV shows have not been in use or in a standard format for as long as MPAA ratings have been for movies. Thus, the available data is sparse and inconsistent.
 
 Future iterations of this model will attempt to include these features.
+
+## 9) Model Implementation
+
+A version of this model has been incorporated into a twitter bot (@mr_tv_robot) which runs on a Raspberry Pi. Technical details for this bot will be added soon.

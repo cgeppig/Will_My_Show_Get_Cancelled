@@ -95,4 +95,12 @@ Future iterations of this model will attempt to include these features.
 
 ## 9) Model Implementation
 
-A version of this model has been incorporated into a twitter bot (@mr_tv_robot) which runs on a Raspberry Pi. Technical details for this bot will be added soon.
+This model was implemented by building it into a twitter bot running on a Raspberry Pi 3b using the Raspbian Jessie (2017-1-11) operating system. This implementation allows people from anywhere in the world to easily use this model to get predictions about a show they are watching or are curious about. 
+
+To operate this twitter bot, a user tweets @mr_tv_robot with the IMDb ID for a TV show, and the bot will tweet back with the prediction (e.g.: “.@cgeppig Beep-boop. The model predicts that ‘Invasion’ has a 74.25% chance of being renewed.”). From a UI standpoint, it may be inconvenient for users to have to look up the ID number of a show, rather than just tweeting the name of the show. However, this ensures that predictions for the correct show will be returned. The search function on IMDb is also fairly unsophisticated, and will frequently not return the correct show if a minor typographical error is present, or if an alternative title is used. 
+
+The original model (described above) was built using AdaBoost. Although this offered the best predictive power, AdaBoost can only return a prediction or 1 (cancelation) or 0 (renewal), and does not allow .predict_proba(). When viewing predictions for a large number of shows simultaneously, it is easy to appreciate that while the model is accurate overall, not every case will be correctly predicted. When viewing a single instance, however, being faced with a bold prediction of “Canceled” or “Renewed” could lead to a lower satisfaction with the model if that instance is later shown to have been misclassified. Rather, a “soft” prediction of the likelihood of a show being renewed is easier to understand when viewing a single prediction. For this reason, a Random Forest classifier was built to incorporate into the twitter bot. The model returns the .predict_proba() for each prediction, rather than .predict().
+
+The required syntax for users is very precise in the current iteration. If the user adds an additional space or words before the id number (e.g. “@mr_tv_robot please tell me if TT0303461 will be renewed”), or adds punctuation (e.g. “@mr_tv_robot TT0303461.”) the bot will return an error. This could be improved in future iterations by using regular expression to detect a valid IMDb ID. 
+
+Additional details will follow...

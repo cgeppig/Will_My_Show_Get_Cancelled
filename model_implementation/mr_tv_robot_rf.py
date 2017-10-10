@@ -18,10 +18,10 @@ import pickle
 print "Libraries are loaded"
 
 # boilerplate code for twitter
-consumer_key = 'xxxxxx'
-consumer_secret_key = 'xxxxxx'
-access_token = 	'xxxx'
-access_token_secret = 'xxxxxx'
+consumer_key = 'FeKvVKDbKwYh71ecwaaM4ShjZ'
+consumer_secret_key = 'H5dOOSSCHCNPu8bisXL0cHhj6txG6EF8xuc9kwerm3c5wHDQ2E'
+access_token = 	'877244005343522816-HFRbUWiu26rQqYrf8GtJtoKjYCeipsu'
+access_token_secret = 'dRZSuWQnyyFt37kfv3cnx9ORCEPmg42pU7qKUEYrWCFt5'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret_key)
 auth.set_access_token(access_token, access_token_secret)
@@ -200,51 +200,55 @@ def get_tv_prediction(imdb_id):
 old_tweets = []
 while True:
 #for i in [1]:
-	print "starting new cycle"
-	tweets = tweepy.Cursor(api.search,q='@mr_tv_robot').items(10)
-	for tweet in tweets:
-		imdbid = (tweet.text).split(' ')[1]
-		sn = tweet.user.screen_name
-		if tweet.text in old_tweets:
-			print 'skipping old tweet'
-		else:
-                        print "Tweet: ", tweet.text
-			try:
-                            print "getting predictions"
-			    predictions = get_tv_prediction(imdbid)
-			    print "predictions: ", predictions
-			    new_tweet = ".@%s Beep-boop. The model predicts that '%s' has a %s chance of being renewed." %(sn, predictions[0], predictions[1])
-			    print "ready to tweet: ", new_tweet
-			    try:
-			    	api.update_status(new_tweet, sn)
-			    	print "successfully tweeted"
-			    	old_tweets.append(tweet.text)
-			    	print "old tweets updated"
-			    except:
-			    	print "twitter won't let me post this"
-			    	old_tweets.append(tweet.text)
-			    	print "old tweets updated"
-			except:
-                            print "invalid tweet"
-                            try:
-                                error_tweet = "@%s Sorry, I couldn't figure out '%s'" %(sn, imdbid)
-                                api.update_status(error_tweet, sn)
-                                old_tweets.append(tweet.text)
-                                print "old tweets updated"
-                            except:
-                                print "twitter won't let me post an error tweet"
-                                old_tweets.append(tweet.text)
-                                print "old tweets updated"
-	print "Sleeping for 5 minutes"
-	sleep(60)
-	print "4 more minutes until new cycle"
-	sleep(60)
-	print "3 more minutes until new cycle"
-	sleep(60)
-	print "2 more minutes until new cycle"
-	sleep(30)
-	print "1 more minute until new cycle"
-	sleep(30)
-	print "30 more seconds..."
+    print "starting new cycle"
+    tweets = tweepy.Cursor(api.search,q='@mr_tv_robot').items(15)
+    for tweet in tweets:
+        imdbid = (tweet.text).split(' ')[1]
+        sn = tweet.user.screen_name
+        full_tweet = sn + tweet.text
+        if full_tweet in old_tweets:
+            print 'skipping old tweet'
+        else:
+            print "Tweet: ", tweet.text 
+            try:
+                print "getting predictions"
+                predictions = get_tv_prediction(imdbid)
+                print "predictions: ", predictions
+                new_tweet = ".@%s Beep-boop. The model predicts that '%s' has a %s chance of being renewed." %(sn, predictions[0], predictions[1])
+                print "ready to tweet: ", new_tweet
+                try:
+                    api.update_status(new_tweet, sn)
+                    print "successfully tweeted"
+                    old_tweets.append(full_tweet)
+                    print "old tweets updated"
+                except:
+                    print "twitter won't let me post this"
+                    old_tweets.append(full_tweet)
+                    print "old tweets updated"
+            except:
+                print "invalid tweet"
+                try:
+                    error_tweet = "@%s Sorry, I couldn't figure out '%s'" %(sn, imdbid)
+                    api.update_status(error_tweet, sn)
+                    old_tweets.append(full_tweet)
+                    print "old tweets updated"
+                except:
+                    print "twitter won't let me post an error tweet"
+                    old_tweets.append(full_tweet)
+                    print "old tweets updated"
+    print "Sleeping for 15 minutes"
+    sleep(600)
+    print "Sleeping for 5 minutes"
+    sleep(60)
+    print "4 more minutes until new cycle"
+    sleep(60)
+    print "3 more minutes until new cycle"
+    sleep(60)
+    print "2 more minutes until new cycle"
+    sleep(30)
+    print "1 more minute until new cycle"
+    sleep(30)
+    print "30 more seconds..."
+    sleep(30)
 
 

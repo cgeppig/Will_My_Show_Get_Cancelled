@@ -18,10 +18,10 @@ import pickle
 print "Libraries are loaded"
 
 # boilerplate code for twitter
-consumer_key = 'FeKvVKDbKwYh71ecwaaM4ShjZ'
-consumer_secret_key = 'H5dOOSSCHCNPu8bisXL0cHhj6txG6EF8xuc9kwerm3c5wHDQ2E'
-access_token = 	'877244005343522816-HFRbUWiu26rQqYrf8GtJtoKjYCeipsu'
-access_token_secret = 'dRZSuWQnyyFt37kfv3cnx9ORCEPmg42pU7qKUEYrWCFt5'
+consumer_key = 'xxxxxxxxxxxxxxxxxxxxxxx'
+consumer_secret_key = 'xxxxxxxxxxxxxxxxxxxxxxx'
+access_token = 	'xxxxxxxxxxxxxxxxxxxxxxx'
+access_token_secret = 'xxxxxxxxxxxxxxxxxxxxxxx'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret_key)
 auth.set_access_token(access_token, access_token_secret)
